@@ -2,6 +2,7 @@
 #define ASSOCARR_H
 
 #include <string>
+using namespace std;
 
 struct assoc {
     string name;

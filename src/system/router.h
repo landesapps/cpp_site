@@ -2,6 +2,7 @@
 #define ROUTER_H
 
 #include "../application/indexController.cpp"
+#include "../application/testController.cpp"
 #include "strHelper.cpp"
 
 class Router {

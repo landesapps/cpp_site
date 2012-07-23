@@ -1,3 +1,6 @@
+#ifndef STRHELPER_CPP
+#define STRHELPER_CPP
+
 #include "strHelper.h"
 
 stringStruct StrHelper::explode(char separator, string input) {
@@ -34,3 +37,5 @@ void StrHelper::add(string *&arr, int arr_size, string word) {
 
     arr[arr_size] = word;
 }
+
+#endif

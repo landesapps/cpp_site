@@ -1,15 +1,17 @@
+#ifndef ROUTER_CPP
+#define ROUTER_CPP
+
+#include <algorithm>
 #include "router.h"
 
 void Router::route(int argc, char *argv[]) {
     string controller = "index";
     string method = "index";
-    string *params;
+    stringStruct params;
     stringStruct split;
-    int paramCount = 0;
 
     if(argc > 1) {
         split = StrHelper::explode('/', argv[1]);
-        cout << split.myString[0] << endl;
        
         if(split.size > 0) {
             controller = split.myString[0];
@@ -18,20 +20,32 @@ void Router::route(int argc, char *argv[]) {
                 method = split.myString[1];
 
                 if(split.size > 2) {
-                    params = new string[split.size - 2];
-                    paramCount = split.size - 2;
+                    params.myString = new string[split.size - 2];
+                    params.size = split.size - 2;
                     for(int iter = 2; iter < split.size; iter++) {
-                        params[iter-2] = split.myString[iter];
+                        params.myString[iter-2] = split.myString[iter];
                     }
                 }
             }
         }
     }
 
-    cout << "Controller: " << controller << "<br/>";
-    cout << "Method: " << method << "<br/>";
-    
-    for(int iter = 0; iter < paramCount; iter++) {
-        cout << "Param" << iter << ": " << params[iter] << "<br/>";
+    transform(controller.begin(), controller.end(), controller.begin(), ::tolower);
+    transform(method.begin(), method.end(), method.begin(), ::tolower);
+
+    if(controller.compare("test") == 0) {
+        if(method.compare("test") == 0) {
+        } else {
+            TestController con;
+            con.index(params);
+        }
+    } else {
+        if(method.compare("test") == 0) {
+        } else {
+            IndexController con;
+            con.index(params);
+        }
     }
 }
+
+#endif

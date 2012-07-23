@@ -1,3 +1,6 @@
+#ifndef MODEL_CPP
+#define MODEL_CPP
+
 #include "model.h"
 
 /**
@@ -94,3 +97,5 @@ int Model::fieldPosition(return_query res, string field) {
 
     return -1;
 }
+
+#endif

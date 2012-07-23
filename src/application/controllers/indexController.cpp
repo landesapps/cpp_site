@@ -5,8 +5,10 @@
 
 void IndexController::index(stringStruct params) {
     assoc* test = NULL;
+    assoc* child = NULL;
 
-    AssocArr::add("[[content]]", "index.tpl", "file", &test);
+    AssocArr::add("[[child]]", "child.tpl", "file", &child);
+    AssocArr::add("[[content]]", "index.tpl", "file", &test, child);
 
     view.render("template.tpl", test);
 }

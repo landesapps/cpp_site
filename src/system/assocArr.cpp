@@ -24,4 +24,26 @@ void AssocArr::add(string name, string content, string type, assoc **arr) {
     }
 }
 
+void AssocArr::add(string name, string content, string type, assoc **arr, assoc *child) {
+    assoc* newData = new assoc;
+    newData->name = name;
+    newData->content = content;
+    newData->child = child;
+    newData->type = type;
+    newData->prev = *arr;
+    newData->next = NULL;
+
+    if(*arr != NULL) {
+        assoc* current = *arr;
+
+        while(current->next != NULL) {
+            current = current->next;
+        }
+
+        current->next = newData;
+    } else {
+        *arr = newData;
+    }
+}
+
 #endif

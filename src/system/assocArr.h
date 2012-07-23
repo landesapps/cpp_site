@@ -10,11 +10,13 @@ struct assoc {
     string type;
     assoc* prev;
     assoc* next;
+    assoc* child;
 };
 
 class AssocArr {
     public:
         static void add(string name, string content, string type, assoc **arr);
+        static void add(string name, string content, string type, assoc **arr, assoc *child);
 };
 
 #endif

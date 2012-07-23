@@ -32,7 +32,7 @@ string View::getContent(string file, assoc *data) {
                 if(data->type.compare("string") == 0) {
                     content.replace(content.find(data->name), data->name.length(), data->content);
                 } else if(data->type.compare("file") == 0) {
-                    content.replace(content.find(data->name), data->name.length(), getContent(baseDir + data->content, NULL));
+                    content.replace(content.find(data->name), data->name.length(), getContent(baseDir + data->content, data->child));
                 }
             }
 

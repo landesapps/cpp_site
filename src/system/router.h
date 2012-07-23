@@ -3,7 +3,7 @@
 
 #include "../application/controllers/indexController.cpp"
 #include "../application/controllers/testController.cpp"
-#include "strHelper.cpp"
+#include "helpers/strHelper.cpp"
 
 class Router {
     public:

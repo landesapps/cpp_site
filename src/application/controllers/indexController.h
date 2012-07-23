@@ -1,8 +1,8 @@
 #ifndef INDEXCONTROLLER_H
 #define INDEXCONTROLLER_H
 
-#include "../../system/controller.cpp"
-#include "../../system/assocArr.cpp"
+#include "../../system/MVC/controller.cpp"
+#include "../../system/helpers/assocArr.cpp"
 
 class IndexController: public Controller {
     public:

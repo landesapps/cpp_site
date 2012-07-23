@@ -1,7 +1,7 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include "assocArr.cpp"
+#include "../helpers/assocArr.cpp"
 #include <iostream>
 #include <fstream>
 #include <string>

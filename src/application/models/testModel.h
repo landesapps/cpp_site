@@ -1,7 +1,7 @@
 #ifndef TESTMODEL_H
 #define TESTMODEL_H
 
-#include "../../system/model.cpp"
+#include "../../system/MVC/model.cpp"
 
 class TestModel: public Model {
     public:

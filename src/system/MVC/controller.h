@@ -1,8 +1,8 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include "assocArr.cpp"
-#include "strHelper.cpp"
+#include "../helpers/assocArr.cpp"
+#include "../helpers/strHelper.cpp"
 #include "view.cpp"
 
 class Controller {

@@ -35,14 +35,29 @@ Model::~Model() {
  *
  * @return return_query
  */
-//TODO: Turn queries into prepare statements
-return_query Model::query(string sql) {
+return_query Model::query(string sql, MYSQL_BIND *bind) {
     int query_state;
     int rows, fields;
     MYSQL_ROW row;
     MYSQL_FIELD *field_values;
 
-    query_state = mysql_query(connection, sql.c_str());
+    stmt = mysql_stmt_init(connection);
+    if(!stmt) {
+        cout << "Out of memory" << endl;
+        exit(1);
+    }
+
+    if(mysql_stmt_prepare(stmt, sql.c_str(), strlen(sql.c_str()))) {
+        cout << "Prepare failed" << endl;
+        exit(1);
+    }
+
+    if(mysql_stmt_bind_param(stmt, bind)) {
+        cout << mysql_stmt_error(stmt) << endl;
+        exit(1);
+    }
+
+    query_state = mysql_stmt_execute(stmt);
 
     if(query_state != 0) {
         cout << mysql_error(connection) << endl;

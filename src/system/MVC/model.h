@@ -2,7 +2,7 @@
 #define MODEL_H
 
 #include <mysql.h>
-#include <string>
+#include <string.h>
 
 using namespace std;
 
@@ -16,6 +16,7 @@ struct return_query {
 class Model {
     private:
         MYSQL       *connection, mysql;
+        MYSQL_STMT  *stmt;
         MYSQL_RES   *result;
 
         //Set the config files
@@ -28,7 +29,7 @@ class Model {
     public:
         Model();
         ~Model();
-        return_query    query(string sql);
+        return_query    query(string sql, MYSQL_BIND *bind);
         int             fieldPosition(return_query res, string field);
 };
 
